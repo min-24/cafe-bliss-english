@@ -1,0 +1,1359 @@
+body {
+    font-family: "Noto Sans JP", sans-serif;
+  }
+
+/*------------ ナビゲーションバー ----------------*/
+
+header {
+    background-color: #FAF3E0;
+    height: auto;
+    width: 100%;
+    max-width: 80px;
+    min-width: 80px;
+    position: relative;
+    z-index: 10000;
+}
+
+/* メニューが開いた時に波を表示 */
+.nav-menu.active + .humburger-wave-svg {
+    opacity: 1;
+}
+
+.navbar {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.navbar-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 10px;
+}
+
+.navbar-button i {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.navbar-button i:hover {
+    opacity: 0.6;
+}
+
+/* menuが開いた時のデザイン */
+.nav-menu {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100vh;
+    text-align: center;
+    background-color: #FAF3E0;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    padding-top: 60px;
+    z-index: 1000;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    opacity: 0;
+    transform: translateX(-100%);
+}
+
+/* メニュ-の文字がふわっと出てくる */
+.nav-menu a {
+    animation: waveFadeIn 0.5s ease-out forwards;
+    transform: translateY(20px);
+}
+
+/* ハンバーガーメニューを開く(javascript用) */
+.nav-menu.active {
+    display: block;
+    transform: translateX(0);
+    opacity: 1;
+    z-index: 10000;
+}
+
+/* メニューがアクティブなときに背景を暗くする */
+.nav-menu.active::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: -1;
+}
+
+/* 各項目を順番に表示 */
+.nav-menu a:nth-child(1) { animation-delay: 0.1s; }
+.nav-menu a:nth-child(2) { animation-delay: 0.2s; }
+.nav-menu a:nth-child(3) { animation-delay: 0.3s; }
+.nav-menu a:nth-child(4) { animation-delay: 0.4s; }
+.nav-menu a:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes waveFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.nav-menu a {
+    color: #553B2D;
+    text-decoration: none;
+    padding: 15px 20px;
+    font-size: 25px;
+    transition: background 0.2s;
+    font-family: 'Comfortaa', sans-serif;
+}
+
+.nav-menu a:hover {
+    background-color: #E5D3B3;
+}
+
+/* メニューを閉じるためのボタン */
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #553B2D;
+    transition: opacity 0.3s;
+}
+
+.close-button:hover {
+    opacity: 0.6;
+}
+
+.sharp {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 30vh;
+    background-color: #6B8E23;
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sharp a {
+    position: absolute;
+    margin-top: 15px;
+    writing-mode: vertical-rl;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+}
+
+/* モバイル向けレスポンシブデザイン */
+@media (max-width: 768px) {
+    .hero-bg {
+        display: flex;
+        flex-direction: column;
+        background-color: #FAF3E0;
+    }
+
+    header {
+        height: 10vh;
+        width: 100%;
+        max-width: 130px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        background-color: #FAF3E0;
+    }
+
+    .hero-bg {
+        height: 100vh;
+    }
+
+    .hero {
+        position: relative;
+    }
+
+    /* 背景の動き部分 */
+    #particles-js {
+        width: 100%;
+        height: 40vh;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translateX(-15%) translateY(-50%); /* 中央揃え */
+        text-align: center;
+    }
+
+    .hero-content2 p {
+        font-size: 1rem;
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+    }
+
+    .hero-content3 img {
+        width: 4rem;
+        height: 4rem;
+        bottom: 10%;
+        right: 10%;
+    }
+
+    /* ハンバーガーメニュ- */
+    .navbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 10px;
+        position: relative;
+    }
+
+    .nav-menu {
+        width: 100%;
+        height: 100%;
+        padding-top: 50px;
+    }
+
+    .nav-menu a {
+        font-size: 20px;
+    }
+
+    .nabvar-button {
+        display: block;
+    }
+
+    .sharp {
+        display: flex;
+        justify-content: flex-end;
+        position: absolute;
+        bottom: 0;
+        left: 68%;
+        height: 30vh;
+        background-color: #6B8E23;
+        color: #fff;
+        width: 15rem;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sharp a {
+        font-size: 1rem;
+        writing-mode: horizontal-tb;
+        position: absolute;
+        margin-top: 150px;
+        text-align: center;
+        text-decoration: none;
+        color: #fff;
+    }
+}
+
+
+/*------------ heroセクション ----------------*/
+.hero-bg {
+    display: flex;
+    z-index: 1;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url('../images/nathan-dumlao-GkyrU8Olw2c-unsplash 1.png') no-repeat center center/cover;
+}
+
+.cafe-logo img {
+    position: absolute;
+    top: 3%;
+    left: 3%;
+    width: 22rem;
+    height: 22rem;
+}
+
+.hero-content p {
+    color: #fff;
+    position: absolute;
+    top: 55%;
+    left: 15%;
+}
+
+.hero-content2 p {
+    color: #fff;
+    position: absolute;
+    bottom: 5%;
+    left: 45%;
+    font-family: 'Comfortaa', sans-serif;
+}
+
+.hero-content3 img {
+    width: 6rem;
+    height: 6rem;
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    transition: transform 0.3s ease-in-out; /*　スムーズに動く　*/
+}
+
+.hero-content3 img:hover {
+    transform: scale(1.1);   /* 10%拡大する */
+}
+
+
+/*------------ menuセクション ----------------*/
+.menu {
+    width: 100%;
+    height: 100vh;
+    min-height: 160vh;
+    background-color: #FAF3E0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 5rem 0; /* 上下の余白を調整 */
+    /* overflow: hidden;  画像がはみ出さないように */
+    z-index: 2;
+}
+
+/* 背景画像 */
+.menu-bg img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;  /* 背景に配置 */
+    object-fit: cover;  /* 画像がセクション全体を覆うように */
+    background-attachment: fixed; /* スクロール時に固定 */
+}
+
+/* メニューコンテナ */
+.menu-container {
+    position: relative; /* 文字を画像の上に配置するための基準 */
+    z-index: 1;
+    padding: 0 2rem;
+    margin-top: -18rem; /* 文字を画像の少し上に配置 */
+}
+
+/* メニュータイトル */
+.menu-title {
+    margin-bottom: 1.5rem;
+}
+
+.menu-title img {
+    width: 20vw;
+    max-width: 100%;
+    min-width: 15rem;
+    display: block;
+}
+
+/* メニューコンテンツ */
+.menu-content {
+    margin-bottom: 2rem;
+}
+
+.menu-content p {
+    font-size: 1.2rem;
+    color: #553B2D;
+    line-height: 1.6;
+}
+
+/* ボタンのデザイン */
+.menu-button {
+    margin-top: 2rem;
+}
+
+.menu-button a {
+    text-decoration: none;
+    color: #553B2D;
+    background-color: #fff;
+    padding: 1rem 4rem;
+    border-radius: 30px 30px 30px 30px;
+    border: solid 2px #6B8E23;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+    display: inline-block;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: 'Comfortaa', sans-serif;
+}
+
+.menu-button a:hover {
+    background-color: #6b8e23;
+    color: #fff;
+}
+
+
+/* モバイル用デザイン */
+@media (max-width: 768px) {
+    .hero {
+        background: 
+            linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
+            url('../images/nathan-dumlao-GkyrU8Olw2c-unsplash 1.png') 
+            no-repeat;
+        background-size: cover;
+        background-position: left 30%; /* 左側をより表示 */
+        position: relative;
+    }    
+
+    .hero-content {
+        position: absolute;
+        width: 25rem;
+        top: 70%;
+        left: 22%;
+    }
+
+    .cafe-logo img {
+        position: absolute;
+        top: -4%;
+        left: -12%;
+        width: 25rem;
+        height: 25rem;
+    }
+
+    .menu {
+        padding: 1rem 1rem;
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+        text-align: center;
+        position: relative;
+    }
+
+    .menu-bg img {
+        width: 100%;
+        height: 470px;
+        position: absolute;
+        top: 25%;
+    }
+
+    .menu-container {
+        position: relative;
+        z-index: 1;
+    }
+
+    .menu-title img {
+        width: 50vw;
+        max-width: 100%;
+        min-width: 12rem;
+    }
+
+    .menu-content {
+        margin-bottom: 1.5rem;
+    }
+
+    .menu-content p {
+        font-size: 1rem;
+        color: #553B2D;
+        line-height: 1.4;
+    }
+
+    .menu-button {
+        margin-top: 2rem;
+    }
+
+    .menu-button a {
+        font-size: 0.9rem;
+        padding: 0.8rem 3rem;
+    }
+}
+
+
+/*---------------- aboutセクション -----------------*/
+
+.about {
+    width: 100%;
+    height: 1500px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    text-align: center;
+    padding: 5rem 0; /* 上下の余白を調整 */
+    overflow: hidden;  /* 画像がはみ出さないように */
+    background: url('../images/kupono-kuwamura-LzgK6IMoSZM-unsplash 1.png') no-repeat center center/cover;
+}
+
+.about-title {
+    margin-bottom: 1.5rem;
+    margin-top: 6rem;
+}
+
+.about-title img {
+    width: 20vw;
+    max-width: 100%;
+    min-width: 15rem;
+    margin: 0;
+}
+
+.about-img-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 40rem;
+    height: 30rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.about-img {
+    position: relative;
+    width: 100%;
+    max-width: 600px; /* スライダーの幅 */
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider img {
+    width: 100%;
+    height: auto;
+    object-fit: cover !important;
+    object-position: center center !important;
+}
+
+/* スライドボタン配置　*/
+.slider-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* リーフ型ボタン */
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dot i {
+    font-size: 8px;
+}
+
+.dot:first-child i {
+    font-size: 8px;
+    color: #81C784;
+}
+
+/* 洗濯中のスライドは葉っぱ型に変更 */
+.dot.active i {
+    font-size: 20px;
+    color: #81C784;
+    content: "\f06c";  /* font awesomeの葉っぱアイコン */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+}
+
+.about-bliss, .bliss-desert {
+    margin: 5rem;
+    
+}
+
+.about-bliss h3, .bliss-desert h3 {
+    font-size: 2rem; /* フォントサイズ調整 */
+    width: 100%; /* 幅を100%に設定 */
+    max-width: 700px; /* 最大幅を設定 */
+    margin: 2rem auto; /* 中央寄せ */
+    color: #553B2D;
+}
+
+.about-bliss p, .bliss-desert p {
+    font-size: 1.2rem; /* フォントサイズ調整 */
+    line-height: 1.6; /* 行間調整 */
+    width: 100%;
+    max-width: 700px; /* 最大幅 */
+    margin: 0 auto; /* 中央寄せ */
+    word-wrap: break-word; /* 単語が長すぎて親要素を超えるとき、改行を強制 */
+    white-space: normal; /* ホワイトスペースの制御 */
+    color: #553B2D;
+}
+
+
+/* 波打つデザイン　*/
+.video-section {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* ビデオエリアを画面いっぱいに */
+    overflow: hidden;
+}
+
+.video-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none; /* 初期状態で非表示 */
+}
+
+.video.active {
+    display: block; /* アクティブなビデオのみ表示 */
+}
+
+.wave-svg {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+    border: none;
+    margin: 0;
+    display: block;
+}
+
+.about-cafe {
+    width: 100%;
+    height: 100vh;
+    background-color: #5B3A29;
+    border: none;
+    margin: 0;
+}
+
+.coffee-guide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+
+.coffee-guide p {
+    color: #fff;
+    width: 22rem;
+    font-size: 1.5rem;
+}
+
+.coffee-guide img {
+    width: 30vw;
+    height: 50vh;
+    object-fit: cover;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.cafe-details-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 6rem;
+}
+
+.cafe-details p {
+    color: #fff;
+}
+
+/* 無限スクロール */
+#marquee-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+}
+
+#marquee-wrapper {
+    display: flex;
+    width: max-content;
+}
+
+#marquee {
+    display: flex;
+    white-space: nowrap;
+}
+
+#marquee img {
+    width: 300px; /* 画像の幅を調整 */
+    height: 260px;
+    margin-right: 20px; /* 画像の間隔 */
+    object-fit: cover;
+}
+
+/* モバイル用デザイン */
+@media (max-width: 768px) {
+    .about {
+        padding: 3rem 1.5rem;
+        width: 100%;
+        height: 1350px;
+    }
+
+    .about-title img {
+        width: 50vw;
+    }
+
+    .about-img-container {
+        width: 30rem;
+        height: 25rem;
+        max-width: 600px;
+    }
+
+    .about-bliss h3, .bliss-desert h3 {
+        font-size: 1.5rem; 
+    }
+    
+    .about-bliss p, .bliss-desert p {
+        font-size: 1rem; 
+        max-width: 100%; 
+    }
+}
+
+
+/* モバイル用デザイン */
+@media (max-width: 768px) {
+    /* 動画セクションの高さを調整 */
+    .video-section {
+        height: 50vh;
+    }
+
+    .video-container {
+        height: 50vh;
+    }
+
+    /* カフェ情報セクションを縦並びに */
+    .coffee-guide {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .coffee-guide p {
+        color: #fff;
+        width: 18rem;
+        font-size: 1.2rem;
+        text-align: left;
+    }
+
+    .coffee-guide img {
+        width: 25rem;
+        height: 20rem;
+    }
+
+    /* 詳細情報の余白と配置を調整 */
+    .cafe-details-container {
+        margin: 4rem 3rem;
+        text-align: center;
+    }
+
+    .cafe-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .cafe-details p {
+        font-size: 1rem;
+        line-height: 1.8;
+        width: 80%;
+        text-align: left;
+    }
+
+    /* 無限スクロールの画像サイズ調整 */
+    #marquee img {
+        width: 200px;
+        height: 180px;
+        margin-right: 10px;
+    }
+
+    .about-cafe {
+        height: 110vh;
+    }
+}
+
+
+/*------------ contactセクション ---------------*/
+
+.contact {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: #DBC0A9;
+}
+
+.contact-container {
+    flex-direction: column;
+}
+
+.contact-title {
+    margin-bottom: 1.5rem;
+    margin-top: 6rem;
+}
+
+.contact-title img {
+    width: 20vw;
+    max-width: 100%;
+    min-width: 15rem;
+}
+
+.contact-content p {
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.map {
+    margin: 2rem;
+}
+
+.map iframe {
+    width: 50vw;
+    height: auto;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 1.5rem;
+    margin: 3rem;
+}
+
+.contact-info h3 {
+    font-family: 'Comfortaa', serif;
+    font-weight: bold;
+    color: #6B8E23;
+}
+
+.contact-info p {
+    color: #553B2D;
+}
+
+.address,
+.tel, 
+.opening-hours {
+    background-color: #fff;
+    text-align: left;
+    padding: 1rem;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+    min-width: 15vw;
+}
+
+/* hover時のスタイル */
+.address:hover,
+.tel:hover,
+.opening-hours:hover {
+    background-color: #f0f0f0; /* 背景色を変更 */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); /* 影を強調 */
+    transform: scale(1.1); /* 少し上に動かす */
+}
+
+
+.reservation {
+    margin: 3rem;
+}
+
+.reservation a {
+    color: #553B2D;
+    background-color: #fff;
+    border: solid 2px #6B8E23;
+    text-decoration: none;
+    border-radius: 20px 20px 20px 20px;
+    padding: 0.5rem 2rem;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+.reservation a:hover {
+    background-color: #6b8e23;
+    color: #fff;
+}
+
+
+/* モバイル用デザイン */
+@media screen and (max-width: 768px) {
+    .contact-container {
+        width: 90%;
+    }
+
+    .contact-title {
+        margin-top: 6rem;
+    }
+
+    .contact-title img {
+        width: 50vw;
+    }
+
+    .contact-content p {
+        font-size: 1rem;
+    }
+
+    .map {
+        margin: 1rem 0;
+    }
+
+    .map iframe {
+        width: 100%;
+        height: 300px;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .address,
+    .tel,
+    .opening-hours {
+        width: 90%;
+        text-align: center;
+        padding: 1.2rem;
+    }
+
+    .reservation {
+        margin: 3rem 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .reservation a {
+        display: block;
+        width: 70%;
+        max-width: 300px;
+        padding: 0.8rem 1rem;
+        font-size: 1rem;
+        text-align: center;
+        border-radius: 30px 30px 30px 30px;
+    }
+}
+
+
+/*------------ goodsセクション ---------------*/
+
+.goods {
+    width: 100%;
+    height: 150vh;
+    min-height: 120vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: #FAF3E0;
+    background-image: url('../images/Group 12.png');
+    background-size: cover;
+    background-position: 10% 90%;
+    animation: backgroundMove 10s infinite;
+}
+
+@keyframes backgroundMove {
+    0% {
+        background-position: 10% 90%;
+    }
+    50% {
+        background-position: 50% 50%;
+    }
+    100% {
+        background-position: 10% 90%;
+    }
+}
+
+.goods-container {
+    flex-direction: column;
+}
+
+.goods-container p {
+    color: #553B2D;
+    font-size: 1.2rem;
+}
+
+.goods-title {
+    margin-bottom: 1.5rem;
+    margin-top: 6rem;
+}
+
+.goods-title img {
+    width: 20vw;
+    max-width: 100%;
+    min-width: 15rem;
+}
+
+.goods-img {
+    position: relative;
+}
+
+.goods-coffee img {
+    width: 20vw;
+    height: auto;
+    position: absolute;
+    top: 120px;
+    left: -200px;
+}
+
+.goods-honey img {
+    width: 30vw;
+    height: auto;
+    position: absolute;
+    top: 80px;
+}
+
+.goods-cup img {
+    width: 20vw;
+    height: auto;
+    position: absolute;
+    top: 500px;
+}
+
+.goods-info p {
+    position: absolute;
+    top: 600px;
+    left: -250px;
+}
+
+/* モバイル用デザイン */
+@media screen and (max-width: 768px) {
+    .goods {
+        width: 100%;
+        height: 190vh;
+    }
+
+    .goods-img {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .goods-title img {
+        width: 50vw;
+    }
+
+    .goods-coffee img,
+    .goods-honey img, 
+    .goods-cup img {
+        width: 24rem;
+        height: 20rem;
+        min-width: 200px;
+        position: static;
+        object-fit: cover;
+        border-radius: 10px 10px 10px 10px;
+    }
+
+    .goods-info {
+        text-align: center;
+        margin-top: 1.5rem;
+    }
+
+    .goods-info p {
+        position: static;
+        font-size: 1.1rem;
+        color: #553B2D;
+        padding: 0 1rem;
+    }
+}
+
+
+/*------------ newsセクション ---------------*/
+.news {
+    position: relative;
+}
+
+.pink-bg {
+    background-color: #EFD0C5;
+    width: 100%;
+    height: 20vh;
+}
+
+.brown-bg {
+    background-color: #DBC0A9;
+    width: 100%;
+    height: 40vh;
+    z-index: 1;
+}
+
+/* 茶色の波のデザイン */
+.news-wave-svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    top: 40vh;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.news-container {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    z-index: 10;   /* 背景より前に表示 */
+    background-color: #fff;
+    border-radius: 10px 10px 10px 10px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 650px;
+    min-width: 400px;
+}
+
+.news-title {
+    margin: 1rem;
+}
+
+.news-title img {
+    width: 10vw;
+    max-width: 100%;
+    min-width: 10rem;
+}
+
+.news-content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.news-article {
+    width: 10rem;
+}
+
+.news-article img {
+    width: 10rem;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.news-article img:hover {
+    transform: scale(1.05);
+    opacity: 0.7;
+}
+
+/* モバイルサイズ用デザイン */
+@media screen and (max-width: 768px) {
+    .news {
+        position: relative;
+    }
+
+    .pink-bg {
+        height: 30vh;
+    }
+
+    .brown-bg {
+        height: 70vh;
+    }
+
+    .news-wave-svg {
+        top: 55vh;
+    }
+
+    .news-container {
+        position: absolute;
+        top: 5%;
+        left: 5%;
+        width: 90%;
+        padding: 1.2rem;
+    }
+
+    .news-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .news-article {
+        width: 80%;
+        display: flex;
+        gap: 1rem;
+    }
+
+    .news-article p {
+        width: 50%;
+    }
+
+    .news-article img {
+        max-width: 100%;
+    }
+
+    .news-title {
+        margin: 2rem 2rem;
+    }
+}
+
+/*------------ fixed backgroundセクション ---------------*/
+.fixed-background {
+    background-image: url('../images/vruyr-martirosyan-0n632K_Mow4-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: -1;
+}
+
+/* 画像コンテナのスタイル */
+.image-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+/* すべての画像を重ねて表示 */
+.image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0; /* 初期状態では透明にする */
+    transition: opacity 1s ease-in-out; /* フェードイン・フェードアウトの効果 */
+}
+
+/* アクティブな画像は表示する */
+.image.active {
+    opacity: 1;
+}
+
+
+/*------------ footer ---------------*/
+
+footer {
+    background-color: #553B2D;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer1 h2 {
+    font-family: 'Comfortaa', serif;
+    font-weight: bold;
+}
+
+.contact-button {
+    border: solid 2px #fff;
+    padding: 0.5rem 2rem;
+    border-radius: 30px 30px 30px 30px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer1 a:hover {
+    color: #553B2D;
+    background-color: #fff;
+}
+
+.footer1,
+.footer2 {
+    margin: 3rem;
+}
+
+.footer2 i {
+    margin: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+    }
+
+    .footer1,
+    .footer2 {
+        margin: 1rem 0;
+    }
+
+    .contact-button {
+        padding: 0.5rem 1.5rem;
+        margin-top: 1rem;
+    }
+
+    .footer1 h2 {
+        font-size: 1.5rem;
+    }
+
+    .footer2 i {
+        margin: 0.5rem 0;
+    }
+}
+
+
+
+/* アニメーションの基本設定 */
+
+/* 上にふわっと出てくる */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 真正面にふわっと飛び出てくる */
+
+@keyframes fadeInFront {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.8); /* 初めは下に少しずらして、小さく */
+    }
+    50% {
+        opacity: 0.6;
+        transform: translateY(-10px) scale(1.1); /* 少し上に飛び、少し大きく */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1); /* 最終的に元の位置で元の大きさ */
+    }
+}
+
+.fade-in-front {
+    animation: fadeInFront 0.6s ease-out;
+}
+
+/* 要素が画面に入るとvisibleクラスを追加 */
+.fade-in-front.visible {
+    opacity: 1;
+    animation: fadeInFront 0.6s ease-out forwards;
+}
