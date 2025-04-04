@@ -654,4 +654,72 @@ h2 {
     opacity: 1;
     transform: translateY(0);
   }
+
+
+
+/*------------ footer ---------------*/
+
+footer {
+    background-color: #553B2D;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer1 h2 {
+    font-family: 'Comfortaa', serif;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+}
+
+.contact-button {
+    border: solid 2px #fff;
+    padding: 0.5rem 2rem;
+    border-radius: 30px 30px 30px 30px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer1 a:hover {
+    color: #553B2D;
+    background-color: #fff;
+}
+
+.footer1,
+.footer2 {
+    margin: 3rem;
+}
+
+.footer2 i {
+    margin: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+    }
+
+    .footer1,
+    .footer2 {
+        margin: 1rem 0;
+    }
+
+    .contact-button {
+        padding: 0.5rem 1.5rem;
+        margin-top: 1rem;
+    }
+
+    .footer1 h2 {
+        font-size: 1.5rem;
+    }
+
+    .footer2 i {
+        margin: 0.5rem 0;
+    }
+}
+
   

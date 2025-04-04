@@ -1,0 +1,46 @@
+@charset "UTF-8";
+/* [Mobile]
+ * ヘッダー、フッターに関わるエレメントへの指定
+-------------------------------------------------- */
+
+@media (max-width: 767px) {
+    /* コンテンツとフッター */
+    input[type="button"],
+    input[type="submit"] {
+        -webkit-appearance: none;/*これをしとかないとinputボタンのCSSが効かない*/
+    }
+    input[type=text],
+    input[type=email],
+    input[type=password],
+    input[type=number],
+    textarea,
+    select,
+    .c-text-input,
+    .c-text-area,
+    .c-selectbox__input {
+        max-width: 100%;
+        font-size: 16px;/* 文字入力時の拡大を防ぐため */
+    }
+    .rwd-scroll-wrap {
+        overflow: auto; /* tableをスクロールさせる */
+        white-space: nowrap; /* tableのセル内にある文字の折り返しを禁止 */
+    }
+    .rwd-scroll-wrap::-webkit-scrollbar { /* tableにスクロールバーを追加 */
+        height: 5px;
+    }
+    .rwd-scroll-wrap::-webkit-scrollbar-track { /* tableにスクロールバーを追加 */
+        background: #F1F1F1;
+    }
+    .rwd-scroll-wrap::-webkit-scrollbar-thumb { /* tableにスクロールバーを追加 */
+        background: #BCBCBC;
+    }
+    .rwd-scroll-wrap > * {
+        white-space: nowrap;
+    }
+    .rwd-scroll-wrap > table {
+        width: 950px;
+    }
+    .rwd-scroll-wrap .c-2016-table__col {
+        white-space: normal;
+    }
+}
