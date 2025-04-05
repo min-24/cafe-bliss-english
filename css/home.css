@@ -428,8 +428,8 @@ header {
 
     .cafe-logo img {
         position: absolute;
-        top: -4%;
-        left: -12%;
+        top: 6.5%;
+        left: 6.5%;
         width: 25rem;
         height: 25rem;
     }
@@ -459,6 +459,7 @@ header {
         width: 50vw;
         max-width: 100%;
         min-width: 12rem;
+        margin: 3rem;
     }
 
     .menu-content {
