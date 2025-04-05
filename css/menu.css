@@ -518,6 +518,18 @@ body, h1, h2, p, div {
     background-image: url('../images/say-s-K8z5FJUay74-unsplash.jpg'); 
 }
 
+/* モバイルサイズ用デザイン */
+@media screen and (max-width: 768px) {
+    .limited-menu-bg,
+    .food-bg, 
+    .drink-bg,
+    .desert-bg {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center top;
+    }
+}
+
 /*-- メニュー内容のスタイル --*/
 .menu-content {
     /* background: rgba(255, 255, 255, 0.7); */
