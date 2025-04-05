@@ -521,9 +521,9 @@ body, h1, h2, p, div {
 @media (max-width: 768px) {
     .background-section {
         background-attachment: scroll; /* モバイルでは固定背景を解除 */
-        background-size: contain; /* 画像が画面に収まるようにリサイズ */
+        background-size: cover; /* 画像が画面に収まるようにリサイズ */
         background-position: center center; /* 画像を中央に配置 */
-        height: auto;
+        /* height: auto; */
     }
 }
 
