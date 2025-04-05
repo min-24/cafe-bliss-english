@@ -191,6 +191,11 @@ body, h1, h2, p, div {
 
 /*-- モバイルサイズ用デザイン --*/
 @media (max-width: 768px) {
+
+    .hero {
+        background: url('../images/jarek-ceborski-IhqDpFz7I8Q-unsplash.jpg') no-repeat center center/contain;
+    }
+
     .circular-text {
         display: none;
     }
