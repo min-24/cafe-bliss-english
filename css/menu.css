@@ -519,7 +519,7 @@ body, h1, h2, p, div {
 }
 
 /* モバイルサイズ用デザイン */
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
     .limited-menu-bg,
     .food-bg, 
     .drink-bg,
@@ -527,8 +527,9 @@ body, h1, h2, p, div {
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center top;
+        height: 50vh;
     }
-}
+} */
 
 /*-- メニュー内容のスタイル --*/
 .menu-content {
