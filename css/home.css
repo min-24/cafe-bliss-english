@@ -1227,6 +1227,15 @@ header {
     z-index: -1;
 }
 
+@media screen and (max-width: 768px) {
+    .fixed-background {
+      background-attachment: scroll; /* モバイルでfixedが効かないのでscrollに */
+      background-size: cover;        /* または 'contain' にすると画像全体が表示されやすい */
+      background-position: center center;
+      height: 50vh;                  /* 高さを少し縮めてもOK */
+    }
+}
+
 /* 画像コンテナのスタイル */
 .image-container {
     position: absolute;
